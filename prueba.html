@@ -43,9 +43,10 @@
             num = 4;
           }
             var p = document.createElement('p');
-            p.appendChild(document.createTextNode(num))
+            p.appendChild(document.createTextNode(num));
+            p.setAttribute('class',`c${num}`);
             vacios[aleatorio1].appendChild(p);
-            console.log(vacios.length);
+            console.log(p.firstChild.nodeValue);
             actualizaVacios();
         }
 
