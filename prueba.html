@@ -55,22 +55,29 @@
           var c2 = document.getElementById('col12');
           var c3 = document.getElementById('col13');
           var c4 = document.getElementById('col14');
-          var columnas = [c1,c2,c3,c4];
-          var llenos = columnas.filter(elem => !vacio(elem));
-          if (llenos.length == 1) {
-            mueveNodo(llenos[0], c4);
-        }else {
-            for (var i = llenos.length; i > 0; i--) {
+          var columnas = [c4,c3,c2,c1];
+          // var llenos = columnas.filter(elem => !vacio(elem));
+          // if (llenos.length == 1) {
+          //   mueveNodo(llenos[0], c4);
+          // }else {
+            var cont = 0;
+            for (var i = 0; i < columnas.length; i--) {
+                if (!vacio(columnas[i])) {
 
+                }
+                if (compara(columnas[i], columnas[i+1]) && cont == 0) {
+                    transformaNodo(columnas[i]);
+                    mueveNodo(columnas[i],columnas[i+1]);
+                    cont++;
+                }
             }
+        // }
 
         }
 
-        }
-
-        function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodevalue}
-        function vacio(nodo){return nodo.children.length == 0}
-        function transformaNodo(nodo){return nodo.firstChild.nodevalue = nodo.firstChild.nodeValue*2;}
+        function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
+        function vacio(nodo){return nodo.children.length == 0;}
+        function transformaNodo(nodo){ nodo.children[0].firstChild.nodeValue = nodo.children[0].firstChild.nodeValue*2;}
         function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
         function actualizaVacios(){vacios = generaVacios(cuadrados); }
       }
@@ -81,13 +88,13 @@
     <table>
         <tbody id="cuerpo">
             <tr id="fila1">
-                <td id="col1"  name='cuadrado'> </td>
+                <td id="col1"  name='cuadrado'><p>2</p> </td>
                 <td id="col21"  name='cuadrado'> </td>
                 <td id="col31"  name='cuadrado'> </td>
                 <td id="col41"  name='cuadrado'> </td>
             </tr>
             <tr id="fila2">
-                <td id="col12"  name='cuadrado'> </td>
+                <td id="col12"  name='cuadrado'><p>2</p> </td>
                 <td id="col22"  name='cuadrado'> </td>
                 <td id="col32"  name='cuadrado'> </td>
                 <td id="col42"  name='cuadrado'> </td>
