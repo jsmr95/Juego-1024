@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+    <title></title>
+    <script type="text/javascript">
+      window.onload = function(){
+        //array de cuadrados totales y de los que quedan vacios
+        var cuadrados = document.getElementsByName('cuadrado');
+        var vacios = vacios(cuadrados);
+        //Columnas y filas
+        // var columna1 = document.getElementsById('col1');
+        // var columna2 = document.getElementsById('col2');
+        // var columna3 = document.getElementsById('col3');
+        // var columna4 = document.getElementsById('col4');
+        // var filas = document.getElementsById('fila');
+        // console.log(filas);
+        window.addEventListener('click',reduceColumna1Abajo);
+        generaNumero();
+        generaNumero();
+
+        //detecta cuales estan vacios de entre los totales
+        function vacios(cuadrados){
+          var vacios = [];
+          for (var i = 0; i < cuadrados.length; i++) {
+            if (cuadrados[i].childNodes.length == 1) {
+              vacios.push(cuadrados[i]);
+            }
+          }
+          return vacios;
+        }
+
+        //genera un 2 o 4 aleatoriamente y lo pinta entre los vacio aleatoriamente
+        function generaNumero(){
+          var num = 2;
+          var aleatorio = Math.random();
+          var aleatorio1 = Math.floor(Math.random()*vacios.length);
+          if (aleatorio >= 0.6) {
+            num = 4;
+          }
+            vacios[aleatorio1].innerHTML = `<p>${num}</p>`;
+        }
+
+        //funcion para reducir columna abajo
+        function reduceColumna1Abajo(){
+          var c1 = document.getElementById('col1');
+          var c2 = document.getElementById('col12');
+          var c3 = document.getElementById('col13');
+          var c4 = document.getElementById('col14');
+
+          if (compara(c1.firstChild.nodeValue, c2.firstChild.nodeValue)) {
+            cambiaNodo(c2);
+            c2.replaceChild(c2.firstChild,c1.firstChild);
+          }else {
+            console.log('adios');
+          }
+
+
+        }
+
+        function compara(num1,num2){ return num1 == num2};
+        function vacio(nodo){return nodo.children.length == 0};
+        function cambiaNodo(nodo){return nodo.firstChild.nodevalue = nodo.firstChild.nodeValue*2;}
+
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="fila1" class="row">
+        <div id="col1" class="col-md-3" name='cuadrado'> </div>
+        <div id="col21" class="col-md-3" name='cuadrado'> </div>
+        <div id="col31" class="col-md-3" name='cuadrado'> </div>
+        <div id="col41" class="col-md-3" name='cuadrado'> </div>
+      </div>
+      <div id="fila2" class="row">
+        <div id="col12" class="col-md-3" name='cuadrado'> </div>
+        <div id="col22" class="col-md-3" name='cuadrado'> </div>
+        <div id="col32" class="col-md-3" name='cuadrado'> </div>
+        <div id="col42" class="col-md-3" name='cuadrado'> </div>
+      </div>
+      <div id="fila3" class="row">
+        <div id="col13" class="col-md-3" name='cuadrado'><p>2</p> </div>
+        <div id="col23" class="col-md-3" name='cuadrado'> </div>
+        <div id="col33" class="col-md-3" name='cuadrado'> </div>
+        <div id="col43" class="col-md-3" name='cuadrado'> </div>
+      </div>
+      <div id="fila4" class="row">
+        <div id="col14" class="col-md-3" name='cuadrado'> </div>
+        <div id="col24" class="col-md-3"name='cuadrado'> </div>
+        <div id="col34" class="col-md-3" name='cuadrado'> </div>
+        <div id="col44" class="col-md-3" name='cuadrado'> </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
