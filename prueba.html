@@ -19,7 +19,7 @@
         // var columna4 = document.getElementsById('col4');
         // var filas = document.getElementsById('fila');
         // console.log(filas);
-        window.addEventListener('click',reduceColumna1Abajo);
+        window.addEventListener('click',reduceColumnaAbajo);
         generaNumero();
         generaNumero();
 
@@ -46,30 +46,32 @@
             p.appendChild(document.createTextNode(num));
             p.setAttribute('class',`c${num}`);
             vacios[aleatorio1].appendChild(p);
-            console.log(p.firstChild.nodeValue);
             actualizaVacios();
         }
 
         //funcion para reducir columna abajo
-        function reduceColumna1Abajo(){
-          // var c1 = document.getElementById('col1');
-          // var c2 = document.getElementById('col12');
-          // var c3 = document.getElementById('col13');
-          // var c4 = document.getElementById('col14');
-          //
-          // if (compara(c1.firstChild.nodeValue, c2.firstChild.nodeValue)) {
-          //   cambiaNodo(c2);
-          //   c2.replaceChild(c2.firstChild,c1.firstChild);
-          // }else {
-          //   console.log('adios');
-          // }
+        function reduceColumnaAbajo(){
+          var c1 = document.getElementById('col1');
+          var c2 = document.getElementById('col12');
+          var c3 = document.getElementById('col13');
+          var c4 = document.getElementById('col14');
+          var columnas = [c1,c2,c3,c4];
+          var llenos = columnas.filter(elem => !vacio(elem));
+          if (llenos.length == 1) {
+            mueveNodo(llenos[0], c4);
+        }else {
+            for (var i = llenos.length; i > 0; i--) {
 
+            }
 
         }
 
-        function compara(num1,num2){ return num1 == num2}
+        }
+
+        function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodevalue}
         function vacio(nodo){return nodo.children.length == 0}
-        function cambiaNodo(nodo){return nodo.firstChild.nodevalue = nodo.firstChild.nodeValue*2;}
+        function transformaNodo(nodo){return nodo.firstChild.nodevalue = nodo.firstChild.nodeValue*2;}
+        function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
         function actualizaVacios(){vacios = generaVacios(cuadrados); }
       }
     </script>
@@ -77,7 +79,7 @@
   <body>
     <center>
     <table>
-        <tbody>
+        <tbody id="cuerpo">
             <tr id="fila1">
                 <td id="col1"  name='cuadrado'> </td>
                 <td id="col21"  name='cuadrado'> </td>
