@@ -7,76 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
     <title>1024</title>
-    <script type="text/javascript" src="auxiliar.js"> </script>
-    <script type="text/javascript">
-      window.onload = function(){
-        //array de cuadrados totales y de los que quedan vacios
-        var cuadrados = document.getElementsByTagName('td');
-        var vacios = generaVacios(cuadrados);
-        //Columnas y filas
-        // var columna1 = document.getElementsById('col1');
-        // var columna2 = document.getElementsById('col2');
-        // var columna3 = document.getElementsById('col3');
-        // var columna4 = document.getElementsById('col4');
-        // var filas = document.getElementsById('fila');
-        // console.log(filas);
-        window.addEventListener('click',reduceColumnaAbajo);
-        generaNumero();
-        generaNumero();
-
-        //detecta cuales estan vacios de entre los totales
-        function generaVacios(cuadrados){
-          var vacios = [];
-          for (var i = 0; i < cuadrados.length; i++) {
-            if (cuadrados[i].childNodes.length == 1) {
-              vacios.push(cuadrados[i]);
-            }
-          }
-          return vacios;
-        }
-
-        //genera un 2 o 4 aleatoriamente y lo pinta entre los vacio aleatoriamente
-        function generaNumero(){
-          var num = 2;
-          var aleatorio = Math.random();
-          var aleatorio1 = Math.floor(Math.random()*vacios.length);
-          if (aleatorio >= 0.7) {
-            num = 4;
-          }
-            var p = document.createElement('p');
-            p.appendChild(document.createTextNode(num));
-            p.setAttribute('class',`c${num}`);
-            vacios[aleatorio1].appendChild(p);
-            actualizaVacios();
-        }
-
-        //funcion para reducir columna abajo
-        function reduceColumnaAbajo(){
-          var c1 = document.getElementById('col1');
-          var c2 = document.getElementById('col12');
-          var c3 = document.getElementById('col13');
-          var c4 = document.getElementById('col14');
-          var columnas = [c4,c3,c2,c1];
-          var llenos = actualizaLlenos(columnas);
-          if (llenos.length == 1) {
-            mueveNodo(llenos[0], c4);
-          }else {
-            var cont = 0;
-            for (var i = 0; i < llenos.length; i++) {
-                console.log(llenos);
-                if (compara(llenos[i], llenos[i+1]) && cont == 0) {
-                    transformaNodo(llenos[i+1]);
-                    mueveNodo(llenos[i+1],llenos[i]);
-                    break;
-                    llenos = actualizaLlenos(columnas);
-                }
-            }
-        }
-
-        }
-
-      }
-    </script>
   </head>
   <body>
     <center>
@@ -109,6 +39,38 @@
         </tbody>
     </table>
     </center>
+    <script type="text/javascript" src="auxiliar.js"> </script>
+    <script type="text/javascript">
+        window.addEventListener('click',reduceColumnaAbajo);
+        generaNumero();
+        generaNumero();
+
+        //funcion para reducir columna abajo
+        function reduceColumnaAbajo(){
+          var c1 = document.getElementById('col1');
+          var c2 = document.getElementById('col12');
+          var c3 = document.getElementById('col13');
+          var c4 = document.getElementById('col14');
+          var columnas = [c4,c3,c2,c1];
+          var llenos = actualizaLlenos(columnas);
+          if (llenos.length == 1) {
+            mueveNodo(llenos[0], c4);
+          }else {
+            var cont = 0;
+            console.log(llenos[1] == llenos[0].nextSibling);
+            for (var i = 0; i < llenos.length; i++) {
+                // console.log(llenos);
+                if (compara(llenos[i], llenos[i+1]) && cont == 0) {
+                    transformaNodo(llenos[i+1]);
+                    mueveNodo(llenos[i+1],llenos[i]);
+                    break;
+                    llenos = actualizaLlenos(columnas);
+                }
+                }
+            }
+        }
+
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
