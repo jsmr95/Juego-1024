@@ -2,6 +2,9 @@
 var cuadrados = document.getElementsByTagName('td');
 var vacios = generaVacios(cuadrados);
 var llenos;
+var llenos1;
+var llenos2;
+var llenos3;
 
 //MÉTODOS AUXILIARES
 function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
@@ -9,7 +12,7 @@ function vacio(nodo){return nodo.children.length == 0;}
 function transformaNodo(nodo){ nodo.children[0].firstChild.nodeValue = nodo.children[0].firstChild.nodeValue*2;}
 function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
 function actualizaVacios(){vacios = generaVacios(cuadrados); }
-function actualizaLlenos(cols){llenos = cols.filter(elem => !vacio(elem));}
+function actualizaLlenos(cols){return cols.filter(elem => !vacio(elem));}
 function cambia01(c4){
     transformaNodo(llenos[1]);
     mueveNodo(llenos[1],c4);
