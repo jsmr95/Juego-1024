@@ -1,6 +1,7 @@
 //array de cuadrados totales y de los que quedan vacios
 var cuadrados = document.getElementsByTagName('td');
 var vacios = generaVacios(cuadrados);
+var llenos;
 
 //MÉTODOS AUXILIARES
 function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
@@ -9,15 +10,15 @@ function transformaNodo(nodo){ nodo.children[0].firstChild.nodeValue = nodo.chil
 function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
 function actualizaVacios(){vacios = generaVacios(cuadrados); }
 function actualizaLlenos(cols){llenos = cols.filter(elem => !vacio(elem));}
-function cambia01(){
+function cambia01(c4){
     transformaNodo(llenos[1]);
     mueveNodo(llenos[1],c4);
 }
-function cambia12(){
+function cambia12(c3){
     transformaNodo(llenos[2]);
     mueveNodo(llenos[2],c3);
 }
-function cambia23(){
+function cambia23(c2){
     transformaNodo(llenos[3]);
     mueveNodo(llenos[3],c2);
 }
