@@ -8,7 +8,19 @@ function vacio(nodo){return nodo.children.length == 0;}
 function transformaNodo(nodo){ nodo.children[0].firstChild.nodeValue = nodo.children[0].firstChild.nodeValue*2;}
 function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
 function actualizaVacios(){vacios = generaVacios(cuadrados); }
-function actualizaLlenos(cols){return cols.filter(elem => !vacio(elem));}
+function actualizaLlenos(cols){llenos = cols.filter(elem => !vacio(elem));}
+function cambia01(){
+    transformaNodo(llenos[1]);
+    mueveNodo(llenos[1],c4);
+}
+function cambia12(){
+    transformaNodo(llenos[2]);
+    mueveNodo(llenos[2],c3);
+}
+function cambia23(){
+    transformaNodo(llenos[3]);
+    mueveNodo(llenos[3],c2);
+}
 
 //detecta cuales estan vacios de entre los totales
 function generaVacios(cuadrados){
