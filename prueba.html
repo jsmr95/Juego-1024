@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
-    <title></title>
+    <title>1024</title>
+    <script type="text/javascript" src="auxiliar.js"> </script>
     <script type="text/javascript">
       window.onload = function(){
         //array de cuadrados totales y de los que quedan vacios
@@ -56,30 +57,24 @@
           var c3 = document.getElementById('col13');
           var c4 = document.getElementById('col14');
           var columnas = [c4,c3,c2,c1];
-          // var llenos = columnas.filter(elem => !vacio(elem));
-          // if (llenos.length == 1) {
-          //   mueveNodo(llenos[0], c4);
-          // }else {
+          var llenos = actualizaLlenos(columnas);
+          if (llenos.length == 1) {
+            mueveNodo(llenos[0], c4);
+          }else {
             var cont = 0;
-            for (var i = 0; i < columnas.length; i--) {
-                if (!vacio(columnas[i])) {
-
-                }
-                if (compara(columnas[i], columnas[i+1]) && cont == 0) {
-                    transformaNodo(columnas[i]);
-                    mueveNodo(columnas[i],columnas[i+1]);
-                    cont++;
+            for (var i = 0; i < llenos.length; i++) {
+                console.log(llenos);
+                if (compara(llenos[i], llenos[i+1]) && cont == 0) {
+                    transformaNodo(llenos[i+1]);
+                    mueveNodo(llenos[i+1],llenos[i]);
+                    break;
+                    llenos = actualizaLlenos(columnas);
                 }
             }
-        // }
+        }
 
         }
 
-        function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
-        function vacio(nodo){return nodo.children.length == 0;}
-        function transformaNodo(nodo){ nodo.children[0].firstChild.nodeValue = nodo.children[0].firstChild.nodeValue*2;}
-        function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
-        function actualizaVacios(){vacios = generaVacios(cuadrados); }
       }
     </script>
   </head>
@@ -100,13 +95,13 @@
                 <td id="col42"  name='cuadrado'> </td>
             </tr>
             <tr id="fila3">
-                <td id="col13"  name='cuadrado'> </td>
+                <td id="col13"  name='cuadrado'><p>2</p> </td>
                 <td id="col23"  name='cuadrado'> </td>
                 <td id="col33"  name='cuadrado'> </td>
                 <td id="col43"  name='cuadrado'> </td>
             </tr>
             <tr id="fila4" >
-                <td id="col14"  name='cuadrado'> </td>
+                <td id="col14"  name='cuadrado'><p>2</p> </td>
                 <td id="col24" name='cuadrado'> </td>
                 <td id="col34"  name='cuadrado'> </td>
                 <td id="col44"  name='cuadrado'> </td>
