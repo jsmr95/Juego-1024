@@ -22,11 +22,12 @@ function reduceColumnaAbajo(){
         if (compara(llenos[0], llenos[1])) {
             cambia01();
             mueveNodo(llenos[2],c3);
+        }else if(compara(llenos[1], llenos[2])){
+            cambia12();
         }else {
             mueveNodo(llenos[0],c4);
             mueveNodo(llenos[1],c3);
             mueveNodo(llenos[2],c2);
-
         }
     //4º OPCION:
     } else if (llenos.length == 4) {
