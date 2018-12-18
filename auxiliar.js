@@ -49,3 +49,20 @@ function generaNumero(){
     vacios[aleatorio1].appendChild(p);
   }
 }
+
+function reduce(e){
+    switch (e.code) {
+        case 'ArrowUp':
+            reduceColumnasArriba();
+            break;
+        case 'ArrowDown':
+            reduceColumnasAbajo();
+            break;
+        case 'ArrowRight':
+            reduceColumnasDerecha();
+            break;
+        case 'ArrowLeft':
+            reduceColumnasIzquierda();
+            break;
+    }
+}
