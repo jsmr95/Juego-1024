@@ -253,7 +253,7 @@ function reduceColumna4Abajo(){
 function reduceColumnasAbajo(){
     reduceColumna1Abajo();
     reduceColumna2Abajo();
-    // reduceColumna3Abajo();
-    // reduceColumna4Abajo();
+    reduceColumna3Abajo();
+    reduceColumna4Abajo();
     generaNumero();
 }
