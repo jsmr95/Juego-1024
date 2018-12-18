@@ -41,9 +41,11 @@
     </center>
     <script type="text/javascript" src="auxiliar.js"> </script>
     <script type="text/javascript" src="reduceColumnaAbajo.js"> </script>
+    <script type="text/javascript" src="reduceColumnaArriba.js"> </script>
     <script type="text/javascript">
     window.onload = function(){
         window.addEventListener('click',reduceColumnasAbajo);
+        window.addEventListener('keydown',reduceColumnasArriba);
         generaNumero();
         generaNumero();
     }
