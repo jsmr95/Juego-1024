@@ -12,146 +12,54 @@ function reduceColumna1Abajo(){
     //2º OPCION:
     }else if (llenos.length == 2) {
         if (compara(llenos[0], llenos[1])) {
-            llenos[1].removeChild(llenos[1].children[0]);
-            llenos[0].children[0].firstChild.nodeValue = llenos[0].children[0].firstChild.nodeValue*2;
-            llenos[0].children[0].setAttribute('class',`c${llenos[0].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
+            transformaNodo(llenos[0],llenos[1]);
+            mueveNodo(llenos[0],c4);
         }else {
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[1].children[0]);
-            }else {
-                c3.replaceChild(llenos[1].children[0],c3.children[0]);
-            }
-        }
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[1],c3);
     //3º OPCION:
+        }
     } else if (llenos.length == 3) {
         if (compara(llenos[0], llenos[1])) {
-            llenos[1].removeChild(llenos[1].children[0]);
-            llenos[0].children[0].firstChild.nodeValue = llenos[0].children[0].firstChild.nodeValue*2;
-            llenos[0].children[0].setAttribute('class',`c${llenos[0].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[2].children[0]);
-            }else {
-                c3.replaceChild(llenos[2].children[0],c3.children[0]);
-            }
+            transformaNodo(llenos[0],llenos[1]);
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[2],c3);
         }else if(compara(llenos[1], llenos[2])){
-            llenos[2].removeChild(llenos[2].children[0]);
-            llenos[1].children[0].firstChild.nodeValue = llenos[1].children[0].firstChild.nodeValue*2;
-            llenos[1].children[0].setAttribute('class',`c${llenos[1].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[1].children[0]);
-            }else {
-                c3.replaceChild(llenos[1].children[0],c3.children[0]);
-            }
+            transformaNodo(llenos[1],llenos[2]);
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[1],c3);
         }else {
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[1].children[0]);
-            }else {
-                c3.replaceChild(llenos[1].children[0],c3.children[0]);
-            }
-            if (c2.children.length == 0) {
-                c2.appendChild(llenos[2].children[0]);
-            }else {
-                c2.replaceChild(llenos[2].children[0],c2.children[0]);
-            }
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[1],c3);
+            mueveNodo(llenos[2],c2);
         }
     //4º OPCION:
     } else if (llenos.length == 4) {
         if (compara(llenos[0], llenos[1])) {
-            llenos[1].removeChild(llenos[1].children[0]);
-            llenos[0].children[0].firstChild.nodeValue = llenos[0].children[0].firstChild.nodeValue*2;
-            llenos[0].children[0].setAttribute('class',`c${llenos[0].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
+            transformaNodo(llenos[0],llenos[1]);
+            mueveNodo(llenos[0],c4);
             if (compara(llenos[2], llenos[3])) {
-                llenos[3].removeChild(llenos[3].children[0]);
-                llenos[2].children[0].firstChild.nodeValue = llenos[2].children[0].firstChild.nodeValue*2;
-                llenos[2].children[0].setAttribute('class',`c${llenos[2].children[0].firstChild.nodeValue}`);
-                if (c3.children.length == 0) {
-                    c3.appendChild(llenos[2].children[0]);
-                }else {
-                    c3.replaceChild(llenos[2].children[0],c3.children[0]);
-                }
+                transformaNodo(llenos[2],llenos[3]);
+                mueveNodo(llenos[2],c3);
             }else {
-                if (c3.children.length == 0) {
-                    c3.appendChild(llenos[2].children[0]);
-                }else {
-                    c3.replaceChild(llenos[2].children[0],c3.children[0]);
-                }
-                if (c2.children.length == 0) {
-                    c2.appendChild(llenos[3].children[0]);
-                }else {
-                    c2.replaceChild(llenos[3].children[0],c2.children[0]);
-                }
+                mueveNodo(llenos[2],c3);
+                mueveNodo(llenos[3],c2);
             }
         }else if(compara(llenos[1], llenos[2])){
-            llenos[2].removeChild(llenos[2].children[0]);
-            llenos[1].children[0].firstChild.nodeValue = llenos[1].children[0].firstChild.nodeValue*2;
-            llenos[1].children[0].setAttribute('class',`c${llenos[1].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[1].children[0]);
-            }else {
-                c3.replaceChild(llenos[1].children[0],c3.children[0]);
-            }
-            if (c2.children.length == 0) {
-                c2.appendChild(llenos[3].children[0]);
-            }else {
-                c2.replaceChild(llenos[3].children[0],c2.children[0]);
-            }
+            transformaNodo(llenos[1],llenos[2]);
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[1],c3);
+            mueveNodo(llenos[3],c2);
+
         }else if(compara(llenos[2], llenos[3])){
-            llenos[3].removeChild(llenos[3].children[0]);
-            llenos[2].children[0].firstChild.nodeValue = llenos[2].children[0].firstChild.nodeValue*2;
-            llenos[2].children[0].setAttribute('class',`c${llenos[2].children[0].firstChild.nodeValue}`);
-            if (c4.children.length == 0) {
-                c4.appendChild(llenos[0].children[0]);
-            }else {
-                c4.replaceChild(llenos[0].children[0],c4.children[0]);
-            }
-            if (c3.children.length == 0) {
-                c3.appendChild(llenos[1].children[0]);
-            }else {
-                c3.replaceChild(llenos[1].children[0],c3.children[0]);
-            }
-            if (c2.children.length == 0) {
-                c2.appendChild(llenos[2].children[0]);
-            }else {
-                c2.replaceChild(llenos[2].children[0],c2.children[0]);
-            }
+            transformaNodo(llenos[2],llenos[3]);
+            mueveNodo(llenos[0],c4);
+            mueveNodo(llenos[1],c3);
+            mueveNodo(llenos[2],c2);
         }
     }
 }
+
 
 // //funcion para reducir la SEGUNDA columna abajo
 // function reduceColumna2Abajo(){
