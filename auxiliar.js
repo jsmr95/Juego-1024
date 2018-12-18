@@ -40,6 +40,9 @@ function generaVacios(cuadrados){
 //genera un 2 o 4 aleatoriamente y lo pinta entre los vacio aleatoriamente
 function generaNumero(){
   actualizaVacios();
+  if (vacios.length == 0) {
+      alert('GAME OVER!');
+  }else {
   var num = 2;
   var aleatorio = Math.random();
   var aleatorio1 = Math.floor(Math.random()*vacios.length);
@@ -50,4 +53,5 @@ function generaNumero(){
     p.appendChild(document.createTextNode(num));
     p.setAttribute('class',`c${num}`);
     vacios[aleatorio1].appendChild(p);
+  }
 }
