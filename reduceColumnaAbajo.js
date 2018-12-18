@@ -7,35 +7,77 @@ function reduceColumna1Abajo(){
     var columnas = [c4,c3,c2,c1];
     llenos = actualizaLlenos(columnas);
     //1º OPCION -> Solo hay uno lleno, se baja abajo del todo
-    console.log(llenos);
     if (llenos.length == 1) {
         mueveNodo(llenos[0], c4);
     //2º OPCION:
     }else if (llenos.length == 2) {
         if (compara(llenos[0], llenos[1])) {
-            transformaNodo(llenos[0],llenos[1]);
-            mueveNodo(llenos[0],c4);
-        }else {
-            console.log('no');
-            var p = document.createElement('p');
-            var txt = document.createTextNode(llenos[1].children[0].firstChild.nodeValue);
-            p.appendChild(txt);
             llenos[1].removeChild(llenos[1].children[0]);
-            c3.appendChild(p);
-            // mueveNodo(llenos[1],c3);
-            // mueveNodo(llenos[0],c4);
+            llenos[0].children[0].firstChild.nodeValue = llenos[0].children[0].firstChild.nodeValue*2;
+            llenos[0].children[0].setAttribute('class',`c${llenos[0].children[0].firstChild.nodeValue}`);
+            if (c4.children.length == 0) {
+                c4.appendChild(llenos[0].children[0]);
+            }else {
+                c4.replaceChild(llenos[0].children[0],c4.children[0]);
+            }
+        }else {
+            if (c4.children.length == 0) {
+                c4.appendChild(llenos[0].children[0]);
+            }else {
+                c4.replaceChild(llenos[0].children[0],c4.children[0]);
+            }
+            if (c3.children.length == 0) {
+                c3.appendChild(llenos[1].children[0]);
+            }else {
+                c3.replaceChild(llenos[1].children[0],c3.children[0]);
+            }
         }
     //3º OPCION:
     } else if (llenos.length == 3) {
         if (compara(llenos[0], llenos[1])) {
-            cambia01(llenos[1],c4);
-            mueveNodo(llenos[2],c3);
+            llenos[1].removeChild(llenos[1].children[0]);
+            llenos[0].children[0].firstChild.nodeValue = llenos[0].children[0].firstChild.nodeValue*2;
+            llenos[0].children[0].setAttribute('class',`c${llenos[0].children[0].firstChild.nodeValue}`);
+            if (c4.children.length == 0) {
+                c4.appendChild(llenos[0].children[0]);
+            }else {
+                c4.replaceChild(llenos[0].children[0],c4.children[0]);
+            }
+            if (c3.children.length == 0) {
+                c3.appendChild(llenos[2].children[0]);
+            }else {
+                c3.replaceChild(llenos[2].children[0],c3.children[0]);
+            }
         }else if(compara(llenos[1], llenos[2])){
-            cambia12(llenos[2],c3);
+            llenos[2].removeChild(llenos[2].children[0]);
+            llenos[1].children[0].firstChild.nodeValue = llenos[1].children[0].firstChild.nodeValue*2;
+            llenos[1].children[0].setAttribute('class',`c${llenos[1].children[0].firstChild.nodeValue}`);
+            if (c4.children.length == 0) {
+                c4.appendChild(llenos[0].children[0]);
+            }else {
+                c4.replaceChild(llenos[0].children[0],c4.children[0]);
+            }
+            if (c3.children.length == 0) {
+                c3.appendChild(llenos[1].children[0]);
+            }else {
+                c3.replaceChild(llenos[1].children[0],c3.children[0]);
+            }
         }else {
-            mueveNodo(llenos[0],c4);
-            mueveNodo(llenos[1],c3);
-            mueveNodo(llenos[2],c2);
+            if (c4.children.length == 0) {
+                c4.appendChild(llenos[0].children[0]);
+            }else {
+                c4.replaceChild(llenos[0].children[0],c4.children[0]);
+            }
+            if (c3.children.length == 0) {
+                c3.appendChild(llenos[1].children[0]);
+            }else {
+                c3.replaceChild(llenos[1].children[0],c3.children[0]);
+            }
+            if (c2.children.length == 0) {
+                c2.appendChild(llenos[2].children[0]);
+            }else {
+                c2.replaceChild(llenos[2].children[0],c2.children[0]);
+            }
         }
     //4º OPCION:
     } else if (llenos.length == 4) {

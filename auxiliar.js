@@ -9,8 +9,10 @@ function vacio(nodo){return nodo.children.length == 0;}
 function mueveNodo(nodo, lugar){ lugar.replaceChild(nodo.firstChild,lugar.firstChild); }
 function actualizaVacios(){vacios = generaVacios(cuadrados); }
 function actualizaLlenos(cols){return cols.filter(elem => !vacio(elem));}
-function transformaNodo(nodo1,nodo2){ nodo1.replaceChild(nodo2.children[0],nodo1.children[0]);
-    nodo1.children[0].firstChild.nodeValue = nodo1.children[0].firstChild.nodeValue*2;}
+function transformaNodo(nodo1,nodo2){
+    nodo1.children[0].firstChild.nodeValue = nodo1.children[0].firstChild.nodeValue*2;
+    nodo1.setAttribute('class',`c${nodo1.children[0].firstChild.nodeValue}`);
+    nodo1.replaceChild(nodo2.children[0],nodo1.children[0]);}
 // function cambia01(nodo,c4){
 //     transformaNodo(nodo);
 //     mueveNodo(nodo,c4);
