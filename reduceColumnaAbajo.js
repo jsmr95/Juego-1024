@@ -160,7 +160,7 @@ function reduceColumna3Abajo(){
             mueveNodo(llenos2[2],c2);
         }
     //4º OPCION:
-} else if (llenos2.length == 4) {
+    } else if (llenos2.length == 4) {
         if (compara(llenos2[0], llenos2[1])) {
             transformaNodo(llenos2[0],llenos2[1]);
             mueveNodo(llenos2[0],c4);
@@ -199,20 +199,24 @@ function reduceColumna4Abajo(){
     if (llenos3.length == 1) {
         mueveNodo(llenos3[0], c4);
     //2º OPCION:
-    }else if (llenos3.length == 2) {
+}else if (llenos3.length == 2) {
         if (compara(llenos3[0], llenos3[1])) {
-            cambia01(llenos3[1],c4);
+            transformaNodo(llenos3[0],llenos3[1]);
+            mueveNodo(llenos3[0],c4);
         }else {
             mueveNodo(llenos3[0],c4);
             mueveNodo(llenos3[1],c3);
-        }
     //3º OPCION:
+        }
     } else if (llenos3.length == 3) {
         if (compara(llenos3[0], llenos3[1])) {
-            cambia01(llenos3[1],c4);
+            transformaNodo(llenos3[0],llenos3[1]);
+            mueveNodo(llenos3[0],c4);
             mueveNodo(llenos3[2],c3);
         }else if(compara(llenos3[1], llenos3[2])){
-            cambia12(llenos3[2],c3);
+            transformaNodo(llenos3[1],llenos3[2]);
+            mueveNodo(llenos3[0],c4);
+            mueveNodo(llenos3[1],c3);
         }else {
             mueveNodo(llenos3[0],c4);
             mueveNodo(llenos3[1],c3);
@@ -221,20 +225,26 @@ function reduceColumna4Abajo(){
     //4º OPCION:
     } else if (llenos3.length == 4) {
         if (compara(llenos3[0], llenos3[1])) {
-            cambia01(llenos3[1],c4);
+            transformaNodo(llenos3[0],llenos3[1]);
+            mueveNodo(llenos3[0],c4);
             if (compara(llenos3[2], llenos3[3])) {
-                mueveNodo(llenos3[3],c2);
+                transformaNodo(llenos3[2],llenos3[3]);
                 mueveNodo(llenos3[2],c3);
-                transformaNodo(c3);
             }else {
                 mueveNodo(llenos3[2],c3);
-                mueveNodo(llenos3[3],c3);
+                mueveNodo(llenos3[3],c2);
             }
         }else if(compara(llenos3[1], llenos3[2])){
-            cambia12(llenos3[2],c3);
+            transformaNodo(llenos3[1],llenos3[2]);
+            mueveNodo(llenos3[0],c4);
+            mueveNodo(llenos3[1],c3);
             mueveNodo(llenos3[3],c2);
+
         }else if(compara(llenos3[2], llenos3[3])){
-            cambia23(llenos3[3],c2);
+            transformaNodo(llenos3[2],llenos3[3]);
+            mueveNodo(llenos3[0],c4);
+            mueveNodo(llenos3[1],c3);
+            mueveNodo(llenos3[2],c2);
         }
     }
 }
