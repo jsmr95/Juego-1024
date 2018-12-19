@@ -5,6 +5,7 @@ function reduceColumna1Arriba(){
     var c3 = document.getElementById('col12');
     var c4 = document.getElementById('col1');
     var columnas = [c4,c3,c2,c1];
+    cambia=0;
     llenos = actualizaLlenos(columnas);
     //1º OPCION -> Solo hay uno lleno, se sube arriba del todo
     if (llenos.length == 1) {
@@ -255,5 +256,7 @@ function reduceColumnasArriba(){
     reduceColumna2Arriba();
     reduceColumna3Arriba();
     reduceColumna4Arriba();
-    generaNumero();
+    if (cambia != 0) {
+        generaNumero();
+    }
 }
