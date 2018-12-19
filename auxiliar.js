@@ -2,6 +2,7 @@
 var cuadrados = document.getElementsByTagName('td');
 var vacios = generaVacios(cuadrados);
 var llenos,llenos1,llenos2,llenos3;
+var cambia = 0;
 
 //MÉTODOS AUXILIARES
 function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
@@ -11,12 +12,17 @@ function actualizaLlenos(cols){return cols.filter(elem => !vacio(elem));}
 function transformaNodo(nodo1,nodo2){
     nodo2.removeChild(nodo2.children[0]);
     nodo1.children[0].firstChild.nodeValue = nodo1.children[0].firstChild.nodeValue*2;
-    nodo1.children[0].setAttribute('class',`c${nodo1.children[0].firstChild.nodeValue}`);}
+    nodo1.children[0].setAttribute('class',`c${nodo1.children[0].firstChild.nodeValue}`);
+    cambia++;
+}
 function mueveNodo(nodo, lugar){
-    if (lugar.children.length == 0) {
-        lugar.appendChild(nodo.children[0]);
-    }else {
-        lugar.replaceChild(nodo.children[0],lugar.children[0]);
+    if (nodo != lugar) {
+        if (lugar.children.length == 0) {
+            lugar.appendChild(nodo.children[0]);
+        }else {
+            lugar.replaceChild(nodo.children[0],lugar.children[0]);
+        }
+        cambia++;
     }
 }
 

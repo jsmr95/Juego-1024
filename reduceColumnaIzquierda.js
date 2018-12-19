@@ -5,6 +5,7 @@ function reduceColumna1Izquierda(){
     var c3 = document.getElementById('col21');
     var c4 = document.getElementById('col1');
     var columnas = [c4,c3,c2,c1];
+    cambia=0;
     llenos = actualizaLlenos(columnas);
     //1º OPCION -> Solo hay uno lleno, se mueve a la derecha del todo
     if (llenos.length == 1) {
@@ -251,6 +252,7 @@ function reduceColumnasIzquierda(){
     reduceColumna2Izquierda();
     reduceColumna3Izquierda();
     reduceColumna4Izquierda();
-
-    generaNumero();
+    if (cambia != 0) {
+        generaNumero();
+    }
 }
