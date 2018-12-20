@@ -5,6 +5,14 @@ table{
     border: 1px solid;
     background-color: #B6B6B6;
 }
+div{
+    width: 490px;
+    height: 150px;
+    margin-top: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #B6B6B6;
+}
 tr {
     margin: 10px;
 }
