@@ -62,6 +62,7 @@
     window.onload = function(){
         window.addEventListener('keydown',reduce);
         window.addEventListener('keydown',gameOver);
+        document.getElementsByName('nuevoJuego')[0].addEventListener('click',function(){location.reload()});
         generaNumero();
         generaNumero();
     }
