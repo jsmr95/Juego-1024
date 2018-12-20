@@ -3,6 +3,7 @@ var cuadrados = document.getElementsByTagName('td');
 var vacios = generaVacios(cuadrados);
 var llenos;
 var cambia = 0;
+var puntos = 0;
 
 //MÉTODOS AUXILIARES
 function compara(nodo1,nodo2){ return nodo1.children[0].firstChild.nodeValue == nodo2.children[0].firstChild.nodeValue;}
@@ -14,6 +15,14 @@ function transformaNodo(nodo1,nodo2){
     nodo1.children[0].firstChild.nodeValue = nodo1.children[0].firstChild.nodeValue*2;
     nodo1.children[0].setAttribute('class',`c${nodo1.children[0].firstChild.nodeValue}`);
     cambia++;
+    puntos += parseInt(nodo1.children[0].firstChild.nodeValue);
+    if (puntos > getCookie('mejorPuntuacion')) {
+        setCookie('mejorPuntuacion', puntos);
+        var h = document.getElementById('best');
+        h.replaceChild(document.createTextNode(puntos),h.firstChild);
+    }
+    var h = document.getElementById('puntuacion');
+    h.replaceChild(document.createTextNode(puntos),h.firstChild);
 }
 function mueveNodo(nodo, lugar){
     if (nodo != lugar) {
@@ -135,5 +144,18 @@ function reduce(e){
         case 'ArrowLeft':
             reduceColumnasIzquierda();
             break;
+    }
+}
+
+function generaCookie()
+{
+    if (getCookie('mejorPuntuacion')) {
+        var h = document.getElementById('best');
+        h.appendChild(document.createTextNode(getCookie('mejorPuntuacion')));
+    }else {
+        var d = new Date(2019,11,30);
+        setCookie('mejorPuntuacion',0,d);
+        var h = document.getElementById('best');
+        h.appendChild(document.createTextNode(getCookie('mejorPuntuacion')));
     }
 }

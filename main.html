@@ -42,7 +42,7 @@
         <div>
             <div>
                 <div><h4>Puntuación</h4></div>
-                <div><h4 id="puntuacion"></h4></div>
+                <div><h4 id="puntuacion">0</h4></div>
             </div>
             <div>
                 <div><h4>Best</h4></div>
@@ -58,11 +58,13 @@
     <script type="text/javascript" src="reduceColumnaArriba.js"> </script>
     <script type="text/javascript" src="reduceColumnaDerecha.js"> </script>
     <script type="text/javascript" src="reduceColumnaIzquierda.js"> </script>
+    <script type="text/javascript" src="cookies.js"> </script>
     <script type="text/javascript">
     window.onload = function(){
         window.addEventListener('keydown',reduce);
         window.addEventListener('keydown',gameOver);
         document.getElementsByName('nuevoJuego')[0].addEventListener('click',function(){location.reload()});
+        generaCookie();
         generaNumero();
         generaNumero();
     }
