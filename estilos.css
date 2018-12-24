@@ -5,6 +5,9 @@
     border-radius: 10px;
     background-color: #E3D199;
 }
+#puntuacion, #best{
+
+}
 table{
     width: 495px;
     height: 460px;
@@ -44,6 +47,10 @@ div > div > div >div{
 h4{
     margin: 3px;
     font-weight: bold;
+}
+button{
+    margin: 10px;
+    background-color: #B5A595;
 }
 tr {
     margin: 10px;
